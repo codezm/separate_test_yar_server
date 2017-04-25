@@ -6,9 +6,16 @@ curl http://www.local.com/separate_test_yar_server/Yar_Client.php
 
 ### Curl 测试.
 ```shell
-curl --user-agent "PHP Yar Rpc-2.0.2" -H 'Content-Type:application/x-www-form-urlencoded' --data-binary @Yar_client_request_post_data.dump http://www.local.com/separate_test_yar_server/Yar_Server.php
+curl --user-agent "PHP Yar Rpc-2.0.2" \
+     -H 'Content-Type:application/x-www-form-urlencoded' \
+     --data-binary @Yar_client_request_post_data.dump \
+     http://www.local.com/separate_test_yar_server/Yar_Server.php
 ```
 ### Ab 压测.
 ```shell
-ab -H 'user-agent:PHP Yar Rpc-2.0.2' -T 'application/x-www-form-urlencoded' -p ./Yar_client_request_post_data.dump -c 1000 -n 10000 http://www.local.com/separate_test_yar_server/Yar_Server.php
+ab -H 'user-agent:PHP Yar Rpc-2.0.2' \
+   -T 'application/x-www-form-urlencoded' \
+   -p ./Yar_client_request_post_data.dump \
+   -c 1000 -n 10000 \
+   http://www.local.com/separate_test_yar_server/Yar_Server.php
 ```
